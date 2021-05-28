@@ -5,7 +5,7 @@ const convert = require("xml-js");
 const rateLimit = require("express-rate-limit");
 var cors = require("cors");
 const app = express();
-const port = 3000;
+const port = process.env.PORT;
 
 // Enable if you're behind a reverse proxy (Heroku, Bluemix, AWS ELB, Nginx, etc)
 // see https://expressjs.com/en/guide/behind-proxies.html

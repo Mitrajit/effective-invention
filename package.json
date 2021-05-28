@@ -1,14 +1,14 @@
 {
   "name": "good-relay",
   "version": "1.0.0",
-  "description": "a simple backend relay for hitting the GoodReads API",
-  "main": "index.js",
+  "description": "a simple backend relay for hitting the Weather API",
+  "main": "index.html",
   "scripts": {
     "start": "node ./backend/app.js",
     "dev": "nodemon ./backend/app.js",
     "debug": "nodemon --inspect ./backend/app.js"
   },
-  "author": "Jackson Bates",
+  "author": "Mitrajit Chandra Chandra",
   "license": "MIT",
   "dependencies": {
     "@babel/core": "^7.6.4",
@@ -24,16 +24,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gskumawat0/example-goodreads-api-relay.git"
+    "url": "git+https://github.com/mitrajit/effective-invention.git"
   },
   "keywords": [
     "secure",
     "api",
     "keys"
   ],
-  "bugs": {
-    "url": "https://github.com/gskumawat0/example-goodreads-api-relay/issues"
+  "engines": {
+    "node": "14.x"
   },
-  "homepage": "https://github.com/gskumawat0/example-goodreads-api-relay#readme",
   "devDependencies": {}
 }
