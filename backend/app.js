@@ -21,7 +21,7 @@ app.use(limiter);
 
 // Allow CORS from any origin
 app.use(cors());
-
+app.get("/", (req, res) => res.send("Hello World!"));
 // Routes
 app.get("/api/search", async (req, res) => {
   try {
