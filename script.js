@@ -1,6 +1,6 @@
 let weather ={
     fetchWeather: function(city){
-        fetch("http://effective-invention.herokuapp.com/api/search?q="+city
+        fetch("https://effective-invention.herokuapp.com/api/search?q="+city
         )
             .then((response) => response.json())
             .then((data) => this.displayWeather(data.results));

@@ -33,7 +33,6 @@ var corsOptions = {
   optionsSuccessStatus: 200 // For legacy browser support
   }
 app.use(cors(corsOptions));
-console.log("dfsdfsd");
 app.get("/", (req, res) => res.sendFile(path.join(__dirname + '/../index.html')));
 // Routes
 app.get("/api/search", async (req, res) => {
