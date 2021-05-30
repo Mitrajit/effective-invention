@@ -6,7 +6,7 @@ const rateLimit = require("express-rate-limit");
 var cors = require("cors");
 const app = express();
 const port = process.env.PORT;
-
+const path = require('path');
 // Enable if you're behind a reverse proxy (Heroku, Bluemix, AWS ELB, Nginx, etc)
 // see https://expressjs.com/en/guide/behind-proxies.html
 app.set('trust proxy', 1);
@@ -18,10 +18,22 @@ const limiter = rateLimit({
 
 
 app.use(limiter);
-
-// Allow CORS from any origin
-app.use(cors());
-app.get("/", (req, res) => res.send("Hello World!"));
+var whitelist=process.env.ORIGIN.split(' ');
+var corsOptions = {
+  origin: function (origin, callback) {
+    console.log(origin);
+    var hostname=new URL(origin).hostname;
+    console.log(hostname,whitelist[0],whitelist.indexOf(hostname));
+    if (whitelist.indexOf(hostname) !== -1) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    }
+  },
+  optionsSuccessStatus: 200 // For legacy browser support
+  }
+app.use(cors(corsOptions));
+app.get("/", (req, res) => res.sendFile(path.join(__dirname + '/../index.html')));
 // Routes
 app.get("/api/search", async (req, res) => {
   try {

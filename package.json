@@ -2,7 +2,7 @@
   "name": "good-relay",
   "version": "1.0.0",
   "description": "a simple backend relay for hitting the Weather API",
-  "main": "index.html",
+  "main": "index.js",
   "scripts": {
     "start": "node ./backend/app.js",
     "dev": "nodemon ./backend/app.js",
