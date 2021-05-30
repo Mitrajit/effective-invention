@@ -19,12 +19,12 @@ const limiter = rateLimit({
 
 app.use(limiter);
 var whitelist=process.env.ORIGIN.split(' ');
+var siteorigin;
 var corsOptions = {
   origin: function (origin, callback) {
+    siteorigin=origin;
     console.log(origin);
-    var hostname=new URL(origin).hostname;
-    console.log(hostname,whitelist[0],whitelist.indexOf(hostname));
-    if (whitelist.indexOf(hostname) !== -1) {
+    if (!origin || whitelist.indexOf(new URL(origin).hostname) !== -1) {
       callback(null, true)
     } else {
       callback(new Error('Not allowed by CORS'))
@@ -33,10 +33,13 @@ var corsOptions = {
   optionsSuccessStatus: 200 // For legacy browser support
   }
 app.use(cors(corsOptions));
+console.log("dfsdfsd");
 app.get("/", (req, res) => res.sendFile(path.join(__dirname + '/../index.html')));
 // Routes
 app.get("/api/search", async (req, res) => {
   try {
+    if (!siteorigin)
+    throw new Error("Unauthorised API call");
     const searchString = `q=${req.query.q}`;
 
     // It uses node-fetch to call the goodreads api, and reads the key from .env
