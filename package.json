@@ -1,7 +1,7 @@
 {
-  "name": "good-relay",
+  "name": "weather-app",
   "version": "1.0.0",
-  "description": "a simple backend relay for hitting the Weather API",
+  "description": "A simple backend relay for hitting the Weather API",
   "main": "index.js",
   "scripts": {
     "start": "node ./backend/app.js",
@@ -24,12 +24,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mitrajit/effective-invention.git"
+    "url": "git+https://github.com/prithwishpramanik/Weather-App.git"
   },
   "keywords": [
-    "secure",
-    "api",
-    "keys"
+    "weather",
+    "app",
+    "api"
   ],
   "engines": {
     "node": "14.x"
