@@ -1,6 +1,6 @@
 let weather ={
     fetchWeather: function(city){
-        fetch("https://weather-applicatio.herokuapp.com/api/search?q="+city
+        fetch("https://effective-invention.herokuapp.com/api/search?q="+city
         )
             .then((response) => response.json())
             .then((data) => this.displayWeather(data.results));
@@ -38,7 +38,4 @@ document.querySelector(".search-bar").addEventListener("keyup",function(event){
     }
     });
 
-fetch("https://ipapi.co/json")
-    .then((response) => response.json())
-    .then((data) => weather.fetchWeather(data.city)
-);
+weather.fetchWeather("self");
