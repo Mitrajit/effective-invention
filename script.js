@@ -38,4 +38,7 @@ document.querySelector(".search-bar").addEventListener("keyup",function(event){
     }
     });
 
-weather.fetchWeather("Haldia");
+fetch("https://ipapi.co/json")
+    .then((response) => response.json())
+    .then((data) => weather.fetchWeather(data.city)
+);
